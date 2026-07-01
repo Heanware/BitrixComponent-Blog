@@ -1,1 +1,49 @@
-<article class="main__articles--item-wrapper <?=$key!==0?'': 'extend'?>">    <a href="/blog/<?=$article['CODE']?>/" class="main__articles--item">        <header class="main__articles--item-header">            <ul class="main__articles--item-header-labels blog-article-labels" aria-label="Теги статьи" role="list">                <li class="main__articles--item-header-labels-theme blog-article-labels-theme"><?=$article['SECTION_NAME']?></li>                <li class="main__articles--item-header-labels-tags">                    <ul>                        <?php if($article['IS_NEW']): ?>                            <li class="article-new">                                <svg aria-hidden="true" width="14" height="14">                                    <use href="#clock"></use>                                </svg>                                Новое                            </li>                        <?php endif; ?>                        <?php if($article['IS_POPULAR']): ?>                            <li class="article-popular">                                <svg aria-hidden="true" width="14" height="14">                                    <use href="#fire"></use>                                </svg>                                Популярное                            </li>                        <?php endif; ?>                    </ul>                </li>            </ul>            <h2><?=$article['LISTING_TITLE']?></h2>            <p><?=$article['PREVIEW_TEXT']?></p>        </header>        <?php if(!empty($previewPicture = $article['PREVIEW_PICTURE'])): ?>            <img class="main__articles--item-img" loading="lazy" src="<?=$previewPicture['SRC']?>" alt="<?=$previewPicture['DESCRIPTION']?>">        <?php endif; ?>        <footer class="main__articles--item-footer">            <ul class="main__articles--item-footer-creation" aria-label="Информация о статье" role="list">                <li class="main__articles--item-footer-creation-detail">                    <span><?=$article['AUTHOR']?></span>                    <span aria-hidden="true">|</span>                    <time datetime="<?=date('Y-m-d', strtotime($article['DATE_CREATE']))?>"><?=$article['DATE_CREATE']->format('d.m.Y')?></time>                </li>                <li class="main__articles--item-footer-creation-views">                    <svg aria-hidden="true" width="18" height="18">                        <use href="#eye"></use>                    </svg>                    <span><?=$article['SHOW_COUNTER']?></span>                </li>            </ul>        </footer>    </a></article>
+<article class="main__articles--item-wrapper <?=$key!==0?'': 'extend'?>">
+    <a href="/blog/<?=$article['CODE']?>/" class="main__articles--item">
+        <header class="main__articles--item-header">
+            <ul class="main__articles--item-header-labels blog-article-labels" aria-label="Теги статьи" role="list">
+                <li class="main__articles--item-header-labels-theme blog-article-labels-theme"><?=$article['SECTION_NAME']?></li>
+                <li class="main__articles--item-header-labels-tags">
+                    <ul>
+                        <?php if($article['IS_NEW']): ?>
+                            <li class="article-new">
+                                <svg aria-hidden="true" width="14" height="14">
+                                    <use href="#clock"></use>
+                                </svg>
+                                Новое
+                            </li>
+                        <?php endif; ?>
+                        <?php if($article['IS_POPULAR']): ?>
+                            <li class="article-popular">
+                                <svg aria-hidden="true" width="14" height="14">
+                                    <use href="#fire"></use>
+                                </svg>
+                                Популярное
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </li>
+            </ul>
+            <h2><?=$article['LISTING_TITLE']?></h2>
+            <p><?=$article['PREVIEW_TEXT']?></p>
+        </header>
+        <?php if(!empty($previewPicture = $article['PREVIEW_PICTURE'])): ?>
+            <img class="main__articles--item-img" loading="lazy" src="<?=$previewPicture['SRC']?>" alt="<?=$previewPicture['DESCRIPTION']?>">
+        <?php endif; ?>
+        <footer class="main__articles--item-footer">
+            <ul class="main__articles--item-footer-creation" aria-label="Информация о статье" role="list">
+                <li class="main__articles--item-footer-creation-detail">
+                    <span><?=$article['AUTHOR']?></span>
+                    <span aria-hidden="true">|</span>
+                    <time datetime="<?=date('Y-m-d', strtotime($article['DATE_CREATE']))?>"><?=$article['DATE_CREATE']->format('d.m.Y')?></time>
+                </li>
+                <li class="main__articles--item-footer-creation-views">
+                    <svg aria-hidden="true" width="18" height="18">
+                        <use href="#eye"></use>
+                    </svg>
+                    <span><?=$article['SHOW_COUNTER']?></span>
+                </li>
+            </ul>
+        </footer>
+    </a>
+</article>
